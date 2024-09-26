@@ -1,7 +1,7 @@
 {
   "name": "lexo-loot-back",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "App.js",
   "scripts": {
     "start": "node App.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "express": "^4.21.0",
+    "mongodb": "^6.9.0",
     "mongoose": "^8.6.2"
   },
   "type": "module"
