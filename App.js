@@ -1,4 +1,5 @@
-import express from 'express';
+const express = require('express');
+const db = require('./MySQLDatabase');
 
 const app = express();
 
@@ -9,10 +10,18 @@ app.use(express.json());
 
 //===============================================================>>>
 
-app.get('/hello', (req, res) => {
-  res.send('Hello');
-});
+app.get('/emp', (req, res) => {
+  const query = 'SELECT * FROM employee';
 
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error fetching data: ', err);
+      res.status(500).send('Server error');
+    } else {
+      res.json(results);  // Send the fetched data as JSON response
+    }
+  });
+});
 
 
 const port = 3000||8080;
