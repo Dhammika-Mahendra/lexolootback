@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://ghcr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_ae786cf73f0444c2b3e74f625a6fa802 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_d46c5c9912b0491090a8901b3f18be63 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_141e3e642b0c444ab398bfc160602973 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_1b299108c8bb4175a51b90a33f33617f }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_ae786cf73f0444c2b3e74f625a6fa802 }}/dhammikamahendra/lexolootback:${{ github.sha }}
+        tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_141e3e642b0c444ab398bfc160602973 }}/dhammikamahendra/lexolootback:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'Nodeback'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b6289d32b7354c9ba13b4c401ec8f1fd }}
-        images: 'ghcr.io/${{ secrets.AzureAppService_ContainerUsername_ae786cf73f0444c2b3e74f625a6fa802 }}/dhammikamahendra/lexolootback:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_bec871bddcd74ca499a6a71b62b143e5 }}
+        images: 'ghcr.io/${{ secrets.AzureAppService_ContainerUsername_141e3e642b0c444ab398bfc160602973 }}/dhammikamahendra/lexolootback:${{ github.sha }}'
