@@ -1,0 +1,23 @@
+name: Build and Push Docker Image to Docker Hub
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Log in to Docker Hub
+        run: echo myDOCKER123 | docker login -u dhammikamahendra --password-stdin
+
+      - name: Build the Docker image
+        run: docker build -t dhammikamahendra/lexolootback:v1 .
+
+      - name: Push the Docker image
+        run: docker push dhammikamahendra/lexolootback:v1
