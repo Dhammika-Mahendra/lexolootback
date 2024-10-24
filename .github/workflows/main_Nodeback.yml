@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_39e0b50429534c339df8fa2d63473de4 }}/dhammikamahendra/lexolootback:${{ github.sha }}
-        file: ./Dockerfile
+        file: ./dockerfile
 
   deploy:
     runs-on: ubuntu-latest
