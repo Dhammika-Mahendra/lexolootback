@@ -13,6 +13,12 @@ app.get('/hello', (req, res) => {
   res.send('Hello');
 });
 
+app.get("/Name", (req, res) => {
+  const name = req.query.name
+  re.send(`Name is ${name}`)
+})
+
+
 
 
 const port = 3000||8080;
