@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Build and Push Docker Image to Docker Hub
 
 on:
   push:
@@ -13,11 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u Dhammika-Mahendra --password-stdin
+      - name: Log in to Docker Hub
+        run: echo myDOCKER123 | docker login -u dhammikamahendra --password-stdin
 
       - name: Build the Docker image
-        run: docker build -t ghcr.io/dhammikamahendra/lexolootback:v1 .
+        run: docker build -t dhammikamahendra/lexolootback:v1 .
 
       - name: Push the Docker image
-        run: docker push ghcr.io/dhammikamahendra/lexolootback:v1
+        run: docker push dhammikamahendra/lexolootback:v1
