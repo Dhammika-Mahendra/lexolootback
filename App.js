@@ -15,7 +15,7 @@ app.get('/hello', (req, res) => {
 
 app.get("/Name", (req, res) => {
   const name = req.query.name
-  re.send(`Name is ${name}`)
+  res.send(`Name is ${name}`)
 })
 
 
